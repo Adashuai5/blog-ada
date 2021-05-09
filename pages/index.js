@@ -14,7 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Hello{' '}
-          <Link href="/posts/first-post">
+          <Link href="/posts/flower">
             <a>flower</a>
           </Link>
         </h1>
