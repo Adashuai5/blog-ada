@@ -18,6 +18,10 @@ export default function Home() {
             <a>flower</a>
           </Link>
         </h1>
+
+        <Link href="/posts/index">
+          <a>FirstPage</a>
+        </Link>
       </main>
 
       <footer className={styles.footer}>
@@ -26,8 +30,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src={png} alt="Vercel Logo" className={styles.logo} />
+          Powered by <img src={png} alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
