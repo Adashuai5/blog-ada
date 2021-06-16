@@ -2,8 +2,18 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import png from '../assets/images/aaa.png'
+import { GetServerSideProps } from 'next'
+import { UAParser } from 'ua-parser-js'
 
-export default function Home() {
+export default function Home(props: {
+  browser: {
+    name: string
+    major: string
+    version: string
+  }
+}) {
+  const { browser } = props
+  console.log('browser', browser)
   return (
     <div className={styles.container}>
       <Head>
@@ -12,6 +22,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <p>你当前使用的浏览器是 {browser.name}</p>
         <h1 className={styles.title}>
           <Link href="/posts/flower">
             <a>Flower</a>
@@ -35,4 +46,15 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const ua = context.req.headers['user-agent']
+  const result = new UAParser(ua).getResult()
+
+  return {
+    props: {
+      browser: result.browser,
+    },
+  }
 }
