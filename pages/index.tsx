@@ -13,15 +13,15 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Hello{' '}
           <Link href="/posts/flower">
-            <a>flower</a>
+            <a>Flower</a>
           </Link>
         </h1>
-
-        <Link href="/posts/index">
-          <a>FirstPage</a>
-        </Link>
+        <h1 className={styles.title}>
+          <Link href="/posts">
+            <a>Blog</a>
+          </Link>
+        </h1>
       </main>
 
       <footer className={styles.footer}>
